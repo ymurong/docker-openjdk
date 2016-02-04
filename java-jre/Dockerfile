@@ -1,6 +1,6 @@
 # AlpineLinux with a glibc-2.21 and Oracle Java 8
 
-FROM alpine:3.3
+FROM aeonproject/base
 MAINTAINER 'Aeon Builds <builds+dockerhub@aeon.io>'
 
 # Install cURL
@@ -10,8 +10,8 @@ RUN apk update && apk --update add curl ca-certificates tar && \
 
 # Java Version
 ENV JAVA_VERSION_MAJOR 8
-ENV JAVA_VERSION_MINOR 66
-ENV JAVA_VERSION_BUILD 17
+ENV JAVA_VERSION_MINOR 72
+ENV JAVA_VERSION_BUILD 15
 ENV JAVA_PACKAGE       server-jre
 
 # Download and unarchive Java
@@ -29,3 +29,5 @@ RUN mkdir /opt && curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie
 # Set environment
 ENV JAVA_HOME /opt/java/jre
 ENV PATH ${PATH}:${JAVA_HOME}/bin
+
+ENTRYPOINT [ 'java' ]
