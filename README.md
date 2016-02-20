@@ -2,6 +2,6 @@
 
 Minimal Java JDK and JRE base container images built on Alpine.
 
-JDK is 151.6 MB
-JRE is 114.4 MB
+- OpenJDK [aeonproject/java-jre](https://hub.docker.com/r/aeonproject/openjdk-jdk/) is 151.6 MB
+- OpenJDK JRE [aeonproject/java-jre](https://hub.docker.com/r/aeonproject/openjdk-jre/) is 114.4 MB
 
