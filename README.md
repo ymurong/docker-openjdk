@@ -2,6 +2,6 @@
 
 Minimal Java JDK and JRE base container images built on Alpine.
 
-JDK is ~172Mb
-JRE is ~124Mb
+JDK is 151.6 MB
+JRE is 114.4 MB
 
