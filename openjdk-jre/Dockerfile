@@ -15,4 +15,4 @@ RUN echo '@edge http://nl.alpinelinux.org/alpine/edge/main' >> /etc/apk/reposito
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-ENTRYPOINT [ 'java' ]
+CMD ["java", "-version"]
