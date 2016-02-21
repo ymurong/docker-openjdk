@@ -1,11 +1,13 @@
 FROM aeonproject/base
+MAINTAINER 'Aeon Builds <builds+dockerfile@aeon.io>'
 
-RUN echo '@edge http://nl.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories
-RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
-RUN apk update && apk upgrade
+RUN echo '@edge http://nl.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories \
+ && echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
+ && apk update && apk upgrade \
+ && apk add openjdk8-jre-base@community \
+ && rm -rf /var/cache/apk/*
 
-# openjdk-8-base contains no GUI support. see https://pkgs.alpinelinux.org/package/testing/x86_64/openjdk8-jre-base
-RUN apk add openjdk8-jre-base@community
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
+ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
+ENTRYPOINT [ 'java' ]
